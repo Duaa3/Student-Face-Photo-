@@ -17,7 +17,7 @@ public class TeacherController {
     public List<Teacher> getTeacher(){
         return teacherService.getAllTeacher();
     }
-    // GET request to retrieve a specific teacher by ID
+    // GET request to retrieve specific teacher by ID
     @GetMapping(path = "/{id}")
     public Teacher getTeacher(@PathVariable(name = "id") int id){
         return teacherService.getATeacher(id);

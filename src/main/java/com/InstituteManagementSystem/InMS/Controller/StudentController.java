@@ -24,7 +24,7 @@ public class StudentController {
         return studentService.getAStudent(id);
 
     }
-    // POST request to create a new student
+    // POST request to create new student
     @PostMapping
     public  Student creatStudent(@RequestBody Student currStudent){
         studentService.creatStudent(currStudent);

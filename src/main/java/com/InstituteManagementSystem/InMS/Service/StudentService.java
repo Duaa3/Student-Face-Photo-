@@ -20,7 +20,7 @@ public class StudentService {
     }
     // Method to get a single student based on their ID
         public Student getAStudent(int id) {
-            // Use the Java 8 Stream API to find the student with the specified ID
+            // Use the Java 8 Stream API to find  student with the specified ID
           Optional <Student> foundRecord = listOfStudent.stream().filter(
                     (currentStudent) -> {
                         return currentStudent.id == id;
