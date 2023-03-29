@@ -1,6 +1,10 @@
 package com.InstituteManagementSystem.InMS.Service;
+
 import com.InstituteManagementSystem.InMS.Model.Teacher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -8,7 +12,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Service // Indicates that this class is a service and will be managed by Spring framework.
 public class TeacherService {
     public List<Teacher> listOfTeacher = new CopyOnWriteArrayList<>();
-    int currId = 1;// Tracks the current ID for new teacher objects
+
     // Retrieves all teacher objects from the list.
     public List<Teacher> getAllTeacher() {
         return listOfTeacher;
@@ -25,6 +29,7 @@ public class TeacherService {
     public Teacher creatTeacher(Teacher currTeacher){
         currTeacher.id = this.currId++;
         listOfTeacher.add(currTeacher);
+        logger.info("Created Teacher with id: " + currTeacher.id);
         return currTeacher;
     }
     // Updates an existing teacher object with new details.
@@ -40,6 +45,9 @@ public class TeacherService {
         listOfTeacher.remove(foundStudent);
         return foundStudent;
     }
+    public List<Teacher> getListOfTeacher = new CopyOnWriteArrayList<>();
+    int currId = 1;// Tracks the current ID for new teacher objects
+    private static final Logger logger = LoggerFactory.getLogger(TeacherService.class);
 
 }
 
